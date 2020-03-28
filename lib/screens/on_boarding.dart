@@ -33,7 +33,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
     page.add(
       PageModel('assets/images/logo_bg.png', 'مرحبا بك',
-          'تمتع بأفضل الخدمات المحاسبية مع ااابرنامج الحسابات الأول'),
+          'تمتع بأفضل الخدمات المحاسبية مع برنامج الحسابات الأول'),
     );
   }
 
