@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:vyappar_arabic/screens/bills_swipe.dart';
 import 'package:vyappar_arabic/screens/main_screen.dart';
 import 'package:vyappar_arabic/screens/on_boarding.dart';
 

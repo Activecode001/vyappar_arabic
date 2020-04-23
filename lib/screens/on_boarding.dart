@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts_arabic/fonts.dart';
+import '../models/page_model.dart';
 
 class OnBoarding extends StatefulWidget {
   @override
@@ -7,39 +8,13 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  List<PageModel> page;
   PageController pageController = PageController(initialPage: 3);
 
   ValueNotifier<int> _valueNotifier = ValueNotifier(0);
 
-  void _AddPage() {
-    page = List<PageModel>();
-
-    page.add(
-      PageModel(
-        'assets/images/acc3.png',
-        'شامل',
-        'يشمل جميع تعاملاتك المحاسبية واخراج جميع التقارير الممكنة بأعلى مواصفات',
-      ),
-    );
-    page.add(
-      PageModel('assets/images/acc1.png', 'آمن',
-          'يأمن حساباتك وبيانات العملاء والموردين الخاص بك, وكذلك بياناتك المصرفية'),
-    );
-    page.add(
-      PageModel('assets/images/acc2.png', 'سهل',
-          'سهولة في استخدام الشاشات والأدوات لتقوم بعملك بطريقة أسهل وأسرع'),
-    );
-
-    page.add(
-      PageModel('assets/images/logo_bg.png', 'مرحبا بك',
-          'تمتع بأفضل الخدمات المحاسبية مع برنامج الحسابات الأول'),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    _AddPage();
+    addPage();
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -52,7 +27,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: ExactAssetImage(
-                            page[index]._image,
+                            page[index].image,
                           ),
                         ),
                       ),
@@ -67,7 +42,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          page[index]._title,
+                          page[index].title,
                           style: TextStyle(
                             color: Colors.blueAccent.shade700,
                             fontSize: 55,
@@ -82,7 +57,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             right: 40,
                           ),
                           child: Text(
-                            page[index]._describtion,
+                            page[index].description,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 18,
@@ -109,19 +84,4 @@ class _OnBoardingState extends State<OnBoarding> {
       ),
     );
   }
-}
-
-class PageModel {
-  String _image;
-  String _title;
-  String _describtion;
-  Widget widget;
-
-  PageModel(this._image, this._title, this._describtion, {this.widget});
-
-  String get describtion => _describtion;
-
-  String get title => _title;
-
-  String get image => _image;
 }
